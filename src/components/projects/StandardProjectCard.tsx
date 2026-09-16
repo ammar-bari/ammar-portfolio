@@ -3,6 +3,7 @@ import { ChevronDown, Play, Image } from "lucide-react";
 import { useState } from "react";
 import type { MediaItem } from "./MediaModal";
 import AchievementBadge from "./AchievementBadge";
+import { assetUrl } from "@/lib/assetUrl";
 
 interface StandardProject {
   title: string;
@@ -106,10 +107,10 @@ const StandardProjectCard = ({ project, index, onMediaClick }: StandardProjectCa
                       className="relative aspect-[4/3] rounded-lg border border-border overflow-hidden hover:border-primary/40 transition-all group/media"
                     >
                       {item.type === "image" ? (
-                        <img src={item.src} alt={item.alt || project.title} className="w-full h-full bg-muted/30" style={{ objectFit: item.fit || "cover", objectPosition: item.position }} loading="lazy" />
+                        <img src={assetUrl(item.src)} alt={item.alt || project.title} className="w-full h-full bg-muted/30" style={{ objectFit: item.fit || "cover", objectPosition: item.position }} loading="lazy" />
                       ) : (
                         <div className="relative w-full h-full bg-card/80">
-                          {item.poster && <img src={item.poster} alt={item.alt || project.title} className="w-full h-full bg-muted/30" style={{ objectFit: item.fit || "cover" }} loading="lazy" />}
+                          {item.poster && <img src={assetUrl(item.poster)} alt={item.alt || project.title} className="w-full h-full bg-muted/30" style={{ objectFit: item.fit || "cover" }} loading="lazy" />}
                           <div className="absolute inset-0 flex items-center justify-center">
                             <span className="rounded-full bg-background/60 p-2 border border-primary/40"><Play size={18} className="text-primary" /></span>
                           </div>

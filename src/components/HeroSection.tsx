@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 import headshotAsset from "@/assets/ammar-resume-headshot.jpg.asset.json";
+import { assetUrl } from "@/lib/assetUrl";
 
 const rotatingTerms = [
   "Control Systems",
@@ -104,7 +105,7 @@ const HeroSection = () => {
           >
             <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-2xl overflow-hidden border border-[hsl(var(--accent-teal))]/20 bg-[hsl(var(--bg-base))] shadow-lg">
               <img
-                src={headshotAsset.url}
+                src={assetUrl(headshotAsset.url)}
                 alt="Ammar Bari"
                 className="w-full h-full object-cover"
               />

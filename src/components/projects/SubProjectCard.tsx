@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Image, Play } from "lucide-react";
 import { useState } from "react";
 import type { MediaItem } from "./MediaModal";
+import { assetUrl } from "@/lib/assetUrl";
 
 interface SubProject {
   title: string;
@@ -100,7 +101,7 @@ const SubProjectCard = ({ project, onMediaClick }: SubProjectCardProps) => {
                     >
                       {item.type === "image" ? (
                         <img
-                          src={item.src}
+                          src={assetUrl(item.src)}
                           alt={item.alt || project.title}
                           className="w-full h-full object-cover"
                           loading="lazy"
@@ -108,7 +109,7 @@ const SubProjectCard = ({ project, onMediaClick }: SubProjectCardProps) => {
                       ) : item.poster ? (
                         <div className="relative w-full h-full">
                           <img
-                            src={item.poster}
+                            src={assetUrl(item.poster)}
                             alt={item.alt || project.title}
                             className="w-full h-full object-cover"
                             loading="lazy"

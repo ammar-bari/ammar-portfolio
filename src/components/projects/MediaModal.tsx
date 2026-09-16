@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
+import { assetUrl } from "@/lib/assetUrl";
 
 interface MediaItem {
   type: "image" | "video";
@@ -97,15 +98,15 @@ const MediaModal = ({ isOpen, onClose, media, initialIndex = 0 }: MediaModalProp
             <div className="relative rounded-lg overflow-hidden border border-primary/30 box-glow-cyan">
               {current?.type === "image" ? (
                 <img
-                  src={current.src}
+                  src={assetUrl(current.src)}
                   alt={current.alt || "Project media"}
                   className="w-full h-auto max-h-[80vh] object-contain bg-card"
                 />
               ) : (
                 <video
                   key={current?.src}
-                  src={current?.src}
-                  poster={current?.poster}
+                  src={assetUrl(current?.src)}
+                  poster={assetUrl(current?.poster)}
                   controls
                   playsInline
                   aria-label={current?.alt || "Project video"}

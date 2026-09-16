@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ArrowDownToLine, ArrowUpRight, Terminal, LayoutDashboard, ChevronRight,  } from "lucide-react";
+import { assetUrl } from "@/lib/assetUrl";
 
 type Entry = { title: string; detail: string; date?: string; points: string[] };
 const sections = [
@@ -62,7 +63,7 @@ const ResumeSection = () => {
       <div className="container mx-auto px-6">
         <div className="flex flex-wrap items-end justify-between gap-6 mb-8">
           <div><p className="font-mono text-sm text-primary mb-2">// the person behind the projects</p><h2 className="text-4xl font-bold">My <span className="gradient-text">Resume</span></h2><p className="text-muted-foreground mt-3">Explore my experience, systems and technical toolkit.</p></div>
-          <a href="/Ammar_Bari_CV.pdf" download className="inline-flex items-center gap-2 rounded-lg bg-foreground px-5 py-3 text-background text-sm font-medium hover:opacity-85"><ArrowDownToLine size={17} /> Download CV <span className="opacity-60 text-xs">PDF</span></a>
+          <a href={assetUrl("/Ammar_Bari_CV.pdf")} download className="inline-flex items-center gap-2 rounded-lg bg-foreground px-5 py-3 text-background text-sm font-medium hover:opacity-85"><ArrowDownToLine size={17} /> Download CV <span className="opacity-60 text-xs">PDF</span></a>
         </div>
 
         <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
@@ -80,7 +81,7 @@ const ResumeSection = () => {
               <div className="flex flex-wrap lg:flex-col gap-1">
                 {sections.map((s, i) => { const chosen = activeId === s.id; return <button key={s.id} type="button" aria-pressed={chosen} onClick={() => select(s.id)} className={`flex items-center gap-3 rounded-lg px-3 py-3 text-left text-sm transition-colors ${chosen ? view === "terminal" ? "bg-primary/10 text-primary font-medium" : "bg-primary/10 text-primary font-medium" : view === "terminal" ? "text-muted-foreground hover:bg-muted hover:text-foreground" : "text-muted-foreground hover:bg-muted"}`}><span>{view === "terminal" ? s.id : s.label}</span><span className="hidden lg:block ml-auto font-mono text-[10px] opacity-50">0{i + 1}</span></button>; })}
               </div>
-              <a href="/Ammar_Bari_CV.pdf" target="_blank" rel="noopener noreferrer" className="mt-6 hidden lg:inline-flex items-center gap-2 px-3 text-xs underline underline-offset-4 opacity-70">Open original CV <ArrowUpRight size={13} /></a>
+              <a href={assetUrl("/Ammar_Bari_CV.pdf")} target="_blank" rel="noopener noreferrer" className="mt-6 hidden lg:inline-flex items-center gap-2 px-3 text-xs underline underline-offset-4 opacity-70">Open original CV <ArrowUpRight size={13} /></a>
             </nav>
 
             <div className="min-w-0 p-5 sm:p-8">

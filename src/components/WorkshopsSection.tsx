@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import roboticArmWorkshopOne from "@/assets/robotic-arm-workshop-1.mp4.asset.json";
 import roboticArmWorkshopTwo from "@/assets/robotic-arm-workshop-2.mp4.asset.json";
+import { assetUrl } from "@/lib/assetUrl";
 
 const workshops = [
   {
@@ -86,17 +87,17 @@ const WorkshopsSection = () => (
 
                 {workshop.photo ? (
                   <div className="grid grid-cols-2 gap-3">
-                    <a href={workshop.photo} target="_blank" rel="noopener noreferrer" aria-label="Open RC Car Workshop photo" className="block aspect-[9/16] overflow-hidden rounded-md border border-primary/30">
-                      <img src={workshop.photo} alt="Presenting RC car components during the workshop" loading="lazy" className="w-full h-full object-cover" />
+                    <a href={assetUrl(workshop.photo)} target="_blank" rel="noopener noreferrer" aria-label="Open RC Car Workshop photo" className="block aspect-[9/16] overflow-hidden rounded-md border border-primary/30">
+                      <img src={assetUrl(workshop.photo)} alt="Presenting RC car components during the workshop" loading="lazy" className="w-full h-full object-cover" />
                     </a>
-                    <video src={workshop.videos[0]} poster={workshop.poster} controls playsInline preload="metadata" aria-label="RC Car Workshop video" className="w-full aspect-[9/16] object-cover rounded-md border border-primary/30 bg-black" />
+                    <video src={assetUrl(workshop.videos[0])} poster={assetUrl(workshop.poster)} controls playsInline preload="metadata" aria-label="RC Car Workshop video" className="w-full aspect-[9/16] object-cover rounded-md border border-primary/30 bg-black" />
                   </div>
                 ) : (
                   <div className="grid grid-cols-2 items-start justify-items-center gap-3">
                     {workshop.videos.map((src, videoIndex) => (
                       <video
                         key={src}
-                        src={src}
+                        src={assetUrl(src)}
                         controls
                         playsInline
                         preload="metadata"

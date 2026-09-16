@@ -9,6 +9,7 @@ import payloadAsset from "@/assets/ir-pose-payload.jpeg.asset.json";
 import markerModuleAsset from "@/assets/ir-pose-marker-module.jpeg.asset.json";
 import demoVideoAsset from "@/assets/ir-pose-demo.mp4.asset.json";
 import uwbDemoVideoAsset from "@/assets/uwb-localisation-demo.mp4.asset.json";
+import { assetUrl } from "@/lib/assetUrl";
 
 interface MediaItem {
   type: "image" | "video";
@@ -243,7 +244,7 @@ const ResearchSection = () => {
                         className={`group relative overflow-hidden rounded-md border border-border hover:border-primary/50 transition-all ${item.type === "video" ? "col-span-2 aspect-video sm:aspect-[2/1]" : "aspect-video"}`}
                       >
                         <img
-                          src={item.type === "image" ? item.src : item.poster ?? ""}
+                          src={assetUrl(item.type === "image" ? item.src : item.poster ?? "")}
                           alt={item.alt ?? card.title}
                           loading="lazy"
                           className={`${item.type === "video" ? "w-[44%]" : "w-full"} h-full object-cover group-hover:scale-[1.03] transition-transform duration-500`}
