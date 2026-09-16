@@ -127,7 +127,7 @@ const ContactSection = () => {
                   <span className="text-terminal-text">$</span>{" "}
                   <span className="text-foreground">echo $GITHUB</span>
                 </div>
-                <a href="https://github.com/ammar01111" target="_blank" rel="noopener noreferrer" className="block text-primary break-all hover:underline">https://github.com/ammar01111</a>
+                <a href="https://github.com/ammar-bari" target="_blank" rel="noopener noreferrer" className="block text-primary break-all hover:underline">https://github.com/ammar-bari</a>
                 <div>
                   <span className="text-terminal-text">$</span>{" "}
                   <span className="text-foreground">echo $LINKEDIN</span>
@@ -144,7 +144,7 @@ const ContactSection = () => {
             {/* Social links */}
             <div className="flex flex-wrap gap-4">
               {[
-{ icon: Github, label: "GitHub", href: "https://github.com/ammar01111" },
+{ icon: Github, label: "GitHub", href: "https://github.com/ammar-bari" },
               { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/ammar-bari-35249420a/" },
               { icon: Mail, label: "Email", href: "mailto:ammarbariamu@gmail.com" }].
               map((social) =>
